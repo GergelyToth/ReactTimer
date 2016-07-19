@@ -5,6 +5,10 @@ var {Route, Router, IndexRoute, hashHistory} = require('react-router');
 // Components
 var Main = require('Components/Main');
 
+// Pages
+var Timer = require('Components/Timer');
+var Countdown = require('Components/Countdown');
+
 // Foundation
 require('style!css!foundation-sites/dist/foundation.min.css');
 $(document).foundation();
@@ -14,7 +18,10 @@ require('style!css!sass!Styles/app.scss');
 
 ReactDOM.render(
 	<Router history={hashHistory}>
-		<Route path="/" component={Main}></Route>
+		<Route path="/" component={Main}>
+			<Route path="countdown" component={Countdown}/>
+			<IndexRoute component={Timer}/>
+		</Route>
 	</Router>,
 	document.getElementById('app')
 );
